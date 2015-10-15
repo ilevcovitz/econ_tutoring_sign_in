@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Student Sign In{% endblock %}
+
+{% block page_content %}
+
+<div class="block_header" style="padding-left: 20px; padding-bottom:50px;">
+    <h2>Econ Tutoring Sign In</h2>
+</div>
+
+<div class="search_form" style="border: 1px solid; padding: 20px 20px 20px 20px; margin: 20px 0 20px 0;">
+    <h2>Student Search</h2>
+    <br><br>
+    {{ search_form.csrf_token }}
+    {{ wtf.quick_form(search_form) }}
+</div>
+
+<div class="results" style="border: 1px solid; padding: 20px 20px 20px 20px;">
+    <h2>Sign In Student</h2>
+    <br>
+    <h3>Employee ID: {% if student_info['empl_id'] %}{{ student_info['empl_id'] }}{% else %}{% endif %}</h3>
+    <h3>First Name: {% if student_info['first'] %}{{ student_info['first'] }}{% else %}{% endif %}</h3>
+    <h3>Last Name: {% if student_info['last'] %}{{ student_info['last'] }}{% else %}{% endif %}</h3>
+    <br>
+    {{ sign_in_form.purpose_choice.label }}
+    {{ sign_in_form.csrf_token }}
+    {{ wtf.quick_form(sign_in_form) }}
+</div>
+
+
+
+<div class="todays_sign_ins" style="padding: 20px 20px 20px 20px;  border: 1px solid; margin-top:50px; margin-bottom:50px;">
+    <center><h2>Today's Sign Ins</h2></center>
+    <div class="sign_in_list" style="padding-left:50px; padding-top:20px">
+        {% for sign_in in todays_sign_ins %}
+             <h3> {{ sign_in }} </h3>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}
