@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Register Students{% endblock %}
+
+{% block page_content %}
+
+<div class="block_header" style="padding-left: 20px; padding-bottom:50px;">
+    <h2>Register Students</h2>
+</div>
+
+<div class="search_form" style="border: 1px solid; padding: 20px 20px 20px 20px; margin: 20px 0 20px 0;">
+    <h2>Student Search</h2>
+    <br><br>
+    {{ search_form.csrf_token }}
+    {{ wtf.quick_form(search_form) }}
+</div>
+
+<div class="results" style="border: 1px solid; padding: 20px 20px 20px 20px;">
+    <h2>Register Student</h2>
+    <br>
+    <h3>Employee ID: {% if student_info['empl_id'] %}{{ student_info['empl_id'] }}{% else %}{% endif %}</h3>
+    <h3>First Name: {% if student_info['first'] %}{{ student_info['first'] }}{% else %}{% endif %}</h3>
+    <h3>Last Name: {% if student_info['last'] %}{{ student_info['last'] }}{% else %}{% endif %}</h3>
+    <br>
+    {{ sign_in_form.purpose_choice.label }}
+    {{ sign_in_form.csrf_token }}
+    {{ wtf.quick_form(sign_in_form) }}
+</div>
+
+
+
+{% endblock %}
