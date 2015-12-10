@@ -16,7 +16,7 @@ The templates folder contain html templates for the sign_in.py script. index.htm
 
 ###Database: 
 
-The database is a sql database which runs on a local xampp host. Its structure is contained in this repo.
+The database is a sql database which runs on a local xampp host. Its structure is contained in this repo under the file econtutoring.sql. 
 
 
 ###Automated Processes on the Econ Tutoring Laptop
