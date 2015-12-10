@@ -38,7 +38,9 @@ The following are automated tasks run by the Windows Task Scheduler (search for 
 ####Name: Generate Tutoring Reports
 
 Description: Runs script generate_report.sh (see scripts below)
+
 Action: Starts a program: C:\tutoring\scripts\generate_report.sh
+
 Schedule: Runs 10AM every day or as soon as possible if task is missed. 
 
 
@@ -46,7 +48,9 @@ Schedule: Runs 10AM every day or as soon as possible if task is missed.
 ####Name: Backup Sign Ins as CSV
 
 Description: Runs export.py (see scripts below)
+
 Action: Starts a program: C:\Users\Av\Anaconda3\python.exe with argument "C:\tutoring\scripts\export.py"
+
 Schedule: Runs 9AM every day and every hour afterwards. 
 
 
