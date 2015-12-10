@@ -6,7 +6,7 @@ On the Econ Tutoring Laptop, the folder C:\tutoring\sign_in contains the Python 
 The files are as follow: 
 
 
-File: sign_in.py
+#File: sign_in.py
 
 Description: This runs the Flask Web App for the sign in form. 
 
@@ -35,14 +35,14 @@ The following programs have a shortcut in the Windows Startup folder (). When th
 
 The following are automated tasks run by the Windows Task Scheduler (search for “task scheduler” in the start menu): 
 
-Name: Generate Tutoring Reports
+#Name: Generate Tutoring Reports
 
 Description: Runs script generate_report.sh (see scripts below)
 Action: Runs 10AM every day or as soon as possible if task is missed. 
 
 
 
-Name: Backup Sign Ins as CSV
+#Name: Backup Sign Ins as CSV
 
 Description: Runs export.py (see scripts below)
 Action: Runs 9AM every day and every hour afterwards. 
@@ -59,13 +59,13 @@ The scripts are:
 
 
 
-File Name: run_sign_in.sh
+#File Name: run_sign_in.sh
 
 Description: Runs sign_in.py program on computer. This is the python script which runs the Flask Sign In form. 
 
 
 
-File Name: generate_report.sh
+#File Name: generate_report.sh
 
 Description: Generates ipython notebook with tutoring report. This script does the following: 
 
@@ -77,7 +77,7 @@ Description: Generates ipython notebook with tutoring report. This script does t
 
 
 
-File Name: export.py
+#File Name: export.py
 
 Description: Exports sign ins in current SQL database into CSV format. Also exports CSV files for each class. These files are stored in the Dropbox folder: C:\Users\AV\Dropbox
 This Dropbox folder is accessible online. 
