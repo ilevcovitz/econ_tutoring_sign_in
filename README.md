@@ -70,7 +70,9 @@ File Name: generate_report.sh
 Description: Generates ipython notebook with tutoring report. This script does the following: 
 
 1) Pulls changes from the tutoring_reports repo from the HunterEcon github account.
+
 2) Uses runipy to run and save the report.ipynb ipython notebook. 
+
 3) Commits and pushes the new ipynb to the github repo. 
 
 
