@@ -66,6 +66,7 @@ Description: Runs sign_in.py program on computer. This is the python script whic
 
 
 ####File Name: generate_report.sh
+#####Important: You will need to have git remember your credentials for this script to work. To do this, follow instructions at: https://help.github.com/articles/caching-your-github-password-in-git/
 
 Description: Generates ipython notebook with tutoring report. This script does the following: 
 
