@@ -5,9 +5,11 @@
 On the Econ Tutoring Laptop, the folder C:\tutoring\sign_in contains the Python Flask files which run the tutoring sign in web app.
 The files are as follow: 
 
+
 File: sign_in.py
 
 Description: This runs the Flask Web App for the sign in form. 
+
 
 The templates folder contain html templates for the sign_in.py script. index.html contains the main sign in form. register.html is used to enter information from past dates. 
 
@@ -38,10 +40,14 @@ Name: Generate Tutoring Reports
 Description: Runs script generate_report.sh (see scripts below)
 Action: Runs 10AM every day or as soon as possible if task is missed. 
 
+
+
 Name: Backup Sign Ins as CSV
 
 Description: Runs export.py (see scripts below)
 Action: Runs 9AM every day and every hour afterwards. 
+
+
 
 ##Scripts:
 
@@ -51,9 +57,13 @@ They are included in the repo.
 
 The scripts are: 
 
+
+
 File Name: run_sign_in.sh
 
 Description: Runs sign_in.py program on computer. This is the python script which runs the Flask Sign In form. 
+
+
 
 File Name: generate_report.sh
 
@@ -62,6 +72,8 @@ Description: Generates ipython notebook with tutoring report. This script does t
 1) Pulls changes from the tutoring_reports repo from the HunterEcon github account.
 2) Uses runipy to run and save the report.ipynb ipython notebook. 
 3) Commits and pushes the new ipynb to the github repo. 
+
+
 
 File Name: export.py
 
