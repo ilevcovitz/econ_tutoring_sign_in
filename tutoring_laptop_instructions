@@ -1,7 +1,8 @@
 
-Instructions for Running Sign In Form
+##Instructions for Running Sign In Form
+
 1. Turn on the laptop designated for sign-ins in the Econ Tutoring Center
-2. Log-in as: Admin, password: 1234
+2. Log-in as: Admin, password: ****
 IMPORTANT: As soon as you log in, two black command prompts will appear. Do not close these at any point. You may minimize these. 
 3. Minimize two command prompt windows. DO NOT CLOSE. 
 4. Firefox should also be open with the Sign In form script. If Sign In form did not load on startup, try refreshing the page. If another page is present which is not the Sign In page, click the “Student Sign In” bookmark on top of the Firefox browser.
@@ -13,12 +14,12 @@ Instructions for Using Sign In Form
 5. Select Class. If no specific class, select “Not Available”
 6. Click Sign In. A successful sign in message should appear. Also, further down the page under “Today’s Sign In”, this student’s sign in should be present. 
 
-Sign In Students from Past Paper Sign Ins
+##Sign In Students from Past Paper Sign Ins
 1. Follows steps 1-4 above.
 2. Click Firefox bookmark “Register Past Sign Ins”. This sign in form allows you to enter a date and time for a student sign in. This form should not be used by students.
 3. To return to regular student sign ins, click bookmark “Student Sign In” on top of Firefox browser
 
-If Sign In Form Does Not Work
+###If Sign In Form Does Not Work
 1. Try restarting the computer and following steps 1-4 in “Instructions for Running Sign-In Form” above. This should fix the problem for most cases.
 If this does not work:
 1. Click Start Menu button
