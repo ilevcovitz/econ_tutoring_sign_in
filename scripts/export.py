@@ -99,10 +99,10 @@ db_courses = courses.query.all()
 for course in db_courses:
     with open('C:\\Users\\Av\\Dropbox\\sign_in_by_course\\' + str(course.catalog_num) + '_' + str(course.section) + '.csv','wt') as csvfile:
         spamwriter = csv.writer(csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-        spamwriter.writerow( ['Date']  + ['Purpose'] + ['Empl ID'] +  ['Last'] + ['First']  + ['Email'] )
+        spamwriter.writerow( ['Date']  + ['Purpose'] + ['Empl ID'] +  ['Last'] + ['First']  )
 
         for sign_in in course.sign_ins:                
-                    spamwriter.writerow( [sign_in.date] + [sign_in.purposes.purpose] + [sign_in.empl_id] + [sign_in.students.last] + [sign_in.students.first] + [sign_in.students.email] )
+                    spamwriter.writerow( [sign_in.date] + [sign_in.purposes.purpose] + [sign_in.empl_id] + [sign_in.students.last] + [sign_in.students.first]  )
                 
 
     
