@@ -1,4 +1,5 @@
 ####Read Me
+This is a repository for the python/Flask?SQL project that creates a browser-based tutoring sign-in system for the Economics Tutoring center.  In addition to making it easy for students to login scripts on the laptop that hosts these files also create CSV backups and reports.
 
 ###Flask: 
 
@@ -76,7 +77,7 @@ Description: Runs sign_in.py program on computer. This is the python script whic
 
 Description: Generates ipython notebook with tutoring report. This script does the following: 
 
-1) Pulls changes from the tutoring_reports repo from the HunterEcon github account.
+1) Pulls changes from the tutoring_reports repo from the HunterEcon github [tutoring_reports](https://github.com/hunterecon/tutoring_reports) repo.
 
 2) Uses runipy to run and save the report.ipynb ipython notebook. 
 
