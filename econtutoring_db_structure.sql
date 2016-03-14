@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.4.14
+-- version 4.5.2
 -- http://www.phpmyadmin.net
 --
--- Host: 127.0.0.1
--- Generation Time: Dec 10, 2015 at 09:00 PM
--- Server version: 5.6.26
--- PHP Version: 5.6.12
+-- Host: localhost
+-- Generation Time: Mar 14, 2016 at 05:34 PM
+-- Server version: 10.1.9-MariaDB
+-- PHP Version: 5.5.30
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET time_zone = "+00:00";
@@ -17,7 +17,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Database: `econtutoring`
+-- Database: `hunterecon$econtutoring`
 --
 
 -- --------------------------------------------------------
@@ -26,14 +26,23 @@ SET time_zone = "+00:00";
 -- Table structure for table `courses`
 --
 
-CREATE TABLE IF NOT EXISTS `courses` (
+CREATE TABLE `courses` (
   `id` int(11) NOT NULL,
   `catalog_num` int(11) NOT NULL,
   `section` text NOT NULL,
   `instructor` text NOT NULL,
   `subject` text NOT NULL,
   `code` int(11) NOT NULL,
-  `term` int(11) NOT NULL
+  `term` int(11) NOT NULL,
+  `mtg_start` text NOT NULL,
+  `mtg_end` text NOT NULL,
+  `mon` text NOT NULL,
+  `tue` text NOT NULL,
+  `wed` text NOT NULL,
+  `thr` text NOT NULL,
+  `fri` text NOT NULL,
+  `sat` text NOT NULL,
+  `sun` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 -- --------------------------------------------------------
@@ -42,7 +51,7 @@ CREATE TABLE IF NOT EXISTS `courses` (
 -- Table structure for table `enrollment_mapping`
 --
 
-CREATE TABLE IF NOT EXISTS `enrollment_mapping` (
+CREATE TABLE `enrollment_mapping` (
   `id` int(11) NOT NULL,
   `students_id` int(11) NOT NULL,
   `courses_id` int(11) NOT NULL,
@@ -52,13 +61,35 @@ CREATE TABLE IF NOT EXISTS `enrollment_mapping` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `pins`
+--
+
+CREATE TABLE `pins` (
+  `id` int(11) NOT NULL,
+  `courses_id` int(11) NOT NULL,
+  `pin` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `purposes`
 --
 
-CREATE TABLE IF NOT EXISTS `purposes` (
+CREATE TABLE `purposes` (
   `id` int(11) NOT NULL,
   `purpose` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `purposes`
+--
+
+INSERT INTO `purposes` (`id`, `purpose`) VALUES
+(1, 'Drop-in'),
+(2, 'Special Review: Quiz'),
+(3, 'Special Review: Midterm 1'),
+(4, 'Special Review: Midterm 2');
 
 -- --------------------------------------------------------
 
@@ -66,7 +97,7 @@ CREATE TABLE IF NOT EXISTS `purposes` (
 -- Table structure for table `sign_ins`
 --
 
-CREATE TABLE IF NOT EXISTS `sign_ins` (
+CREATE TABLE `sign_ins` (
   `id` int(11) NOT NULL,
   `students_id` int(11) NOT NULL,
   `empl_id` int(11) NOT NULL,
@@ -82,7 +113,7 @@ CREATE TABLE IF NOT EXISTS `sign_ins` (
 -- Table structure for table `students`
 --
 
-CREATE TABLE IF NOT EXISTS `students` (
+CREATE TABLE `students` (
   `id` int(11) NOT NULL,
   `term` int(11) NOT NULL,
   `empl_id` int(11) NOT NULL,
@@ -109,6 +140,12 @@ ALTER TABLE `enrollment_mapping`
   ADD PRIMARY KEY (`id`);
 
 --
+-- Indexes for table `pins`
+--
+ALTER TABLE `pins`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- Indexes for table `sign_ins`
 --
 ALTER TABLE `sign_ins`
@@ -128,22 +165,22 @@ ALTER TABLE `students`
 -- AUTO_INCREMENT for table `courses`
 --
 ALTER TABLE `courses`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=79846;
 --
 -- AUTO_INCREMENT for table `enrollment_mapping`
 --
 ALTER TABLE `enrollment_mapping`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=1975;
 --
 -- AUTO_INCREMENT for table `sign_ins`
 --
 ALTER TABLE `sign_ins`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=158;
 --
 -- AUTO_INCREMENT for table `students`
 --
 ALTER TABLE `students`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=23520700;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

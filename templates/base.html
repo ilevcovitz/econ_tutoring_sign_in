@@ -6,6 +6,7 @@
 {{ super() }}
 <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
 <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}" type="image/x-icon">
+
 {% endblock %}
 
 {% block navbar %}
@@ -36,7 +37,7 @@
 {% block content %}
 <div class="container">
     {% for message in get_flashed_messages() %}
-    <div class="alert alert-warning">
+    <div class="alert alert-warning" style="font-size:40px;">
         <button type="button" class="close" data-dismiss="alert">&times;</button>
         {{ message }}
     </div>

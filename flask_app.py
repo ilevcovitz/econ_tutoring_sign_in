@@ -214,7 +214,7 @@ def index():
                         student_courses.append([0,"Not Available"])
                         session['student_courses'] = student_courses
 
-                        flash("Student record located. Please fill in your information below and click \"Sign in\" to complete registration.")
+                        flash("ATTENTION, YOU ARE NOT FINISHED. Please fill in your information below and click \"Sign in\" to complete registration.")
 
 
 

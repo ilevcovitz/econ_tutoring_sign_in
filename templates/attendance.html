@@ -1,0 +1,122 @@
+{% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
+
+{% block title %}Student Econ Tutoring Attendance{% endblock %}
+
+
+
+{% block page_content %}
+
+<style>
+table, th, td {
+   border: 1px solid blue;
+   padding: 5px 5px 5px 5px;
+}
+</style>
+<div class="block_header" style="padding-left: 20px; padding-bottom:10px;">
+    <h2>Course Pin</h2>
+    <br><br><br>
+    {{ wtf.quick_form(attendance_form) }}
+
+</div>
+
+<div style="padding-bottom:40px;">
+
+
+{% if course.instructor %}
+
+<script src="{{ url_for('static', filename='js/excellentexport.min.js') }}"> </script>
+<br><br>
+<center>
+<a download="tutoring_sign_ins.xls"
+    href="#"
+    onclick="return ExcellentExport.excel(this, 'datatable', 'Tutoring Sign Ins');" style="font-size:22px;">
+        Export table to Excel</a>
+</center>
+
+
+
+<h3 style="padding-bottom: 0">
+{{course.instructor}} 
+<br>
+Course: {{course.catalog_num}}  Section: {{course.section}}
+</h3>
+
+{% if not(sign_in_list) %}
+<h1>Currently, no tutoring visits to display. </h1>
+{% endif %}
+{% endif%}
+
+{%if sign_in_list %}
+
+
+{%if course.instructor=="All" %}
+
+<table id="datatable">
+
+             <tr>
+             <td><b> Date </b></td>
+             <td><b> Time </b></td>
+             <td><b> Student Employee ID </b></td>
+             <td><b> Purpose </b></td>
+             <td><b> Student Last Name </b></td>
+             <td><b> Student First Name </b></td>
+             <td><b> Email </b></td>
+             <td><b> Subject </b></td>
+             <td><b> Catalog Num </b></td>
+             <td><b> Section </b></td>
+             <td><b> Instructor </b></td>
+             <td><b> Course Code </b></td>
+             <td><b> Term </b> </td>
+             </tr>
+{% for sign_in in sign_in_list %}
+
+             <tr>
+             <td> {{ sign_in.date }} </td>
+             <td> {{ sign_in.time }} </td>
+             <td> {{ sign_in.empl_id }} </td>
+             <td> {{ sign_in.purposes.purpose }} </td>
+             <td> {{ sign_in.students.last }} </td>
+             <td> {{ sign_in.students.first }} </td>
+             <td> {{ sign_in.students.email }} </td>
+             <td> {{ sign_in.courses.subject }}</td>
+             <td> {{ sign_in.courses.catalog_num }}</td>
+             <td> {{ sign_in.courses.section}}</td>
+             <td> {{ sign_in.courses.instructor }}</td>
+             <td> {{ sign_in.courses.code }}</td>
+             <td> {{ sign_in.courses.term }}</td>
+             </tr>
+{% endfor %}
+
+</table>
+
+{% else %}
+
+<table id="datatable">
+
+             <tr>
+             <td><b> Date </b></td>
+             <td><b> Purpose </b></td>
+             <td><b> Student Employee ID </b></td>
+             <td><b> Student Last Name </b></td>
+             <td><b> Student First Name </b></td>
+             </tr>
+{% for sign_in in sign_in_list %}
+
+             <tr>
+             <td> {{ sign_in.date }} </td>
+             <td> {{ sign_in.purposes.purpose }} </td>
+             <td> {{ sign_in.empl_id }} </td>
+             <td> {{ sign_in.students.last }} </td>
+             <td> {{ sign_in.students.first }} </td>
+             </tr>
+{% endfor %}
+
+</table>
+
+{% endif %}
+
+{% endif %}
+</div>
+
+{% endblock %}
