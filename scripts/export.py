@@ -17,7 +17,7 @@ basedir = os.path.abspath(os.path.dirname(__file__))
 
 app = Flask(__name__)
 app.config['SECRET_KEY'] = 'SECRET KEY HERE'
-app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://root:@localhost/econtutoring'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'mysql+pymysql://hunterecon:mySQL_PASSWORD@hunterecon.mysql.pythonanywhere-services.com/hunterecon$econtutoring'
 app.config['SQLALCHEMY_COMMIT_ON_TEARDOWN'] = True
 
 manager = Manager(app)
@@ -42,8 +42,8 @@ class courses(db.Model):
 
     #sign_ins relationship
     sign_ins = db.relationship('sign_ins', backref='courses')
-    
-    
+
+
 class students(db.Model):
     __tablename__ = 'students'
     id = db.Column(db.Integer, primary_key=True)
@@ -52,18 +52,18 @@ class students(db.Model):
     first = db.Column(db.Text)
     last = db.Column(db.Text)
     email = db.Column(db.Text)
-    
+
     #creates a many to many mapping from students to courses based on entries of enrollment_mapping
     courses = db.relationship('courses', secondary=enrollment_mapping, backref=db.backref('students', lazy='dynamic'), lazy='dynamic')
     #sign in relationship
     sign_ins = db.relationship('sign_ins', backref='students')
-   
+
 class purposes(db.Model):
     __tablename__ = 'purposes'
     id = db.Column(db.Integer, primary_key=True)
     purpose = db.Column(db.Text)
     sign_ins = db.relationship('sign_ins', backref='purposes')
-    
+
 class sign_ins(db.Model):
     __tablename__ = 'sign_ins'
     id = db.Column(db.Integer, primary_key=True)
@@ -73,39 +73,38 @@ class sign_ins(db.Model):
     date = db.Column(db.Date)
     time = db.Column(db.Time)
     purpose_id = db.Column(db.Integer, db.ForeignKey(purposes.id))
-        
+
 
 
 
 db_sign_ins = sign_ins.query.all()
 
-date = datetime.now().date() 
+date = datetime.now().date()
 time = datetime.now().time()
 
-with open('C:\\Users\\Av\\Dropbox\\sign_in_exports\\sign_in_export_' + str(date) + '.csv','wt') as csvfile:
+with open('/home/hunterecon/mysite/scripts/sign_in_exports/latest_export.csv','wt') as csvfile:
     spamwriter = csv.writer(csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-    
+
     spamwriter.writerow(['Sign In ID'] + ['Date'] + ['Time'] + ['Employee ID'] + ['Purpose'] +  ['Last'] + ['First']  + ['Email'] + ['Subject'] + ['Catalog Num'] + ['Section'] + ['Instructor'] + ['Course Code'] + ['Term'])
     for sign_in in db_sign_ins:
         if sign_in.courses_id:
             spamwriter.writerow([sign_in.id] + [sign_in.date] + [sign_in.time] + [sign_in.empl_id] + [sign_in.purposes.purpose] + [sign_in.students.last] + [sign_in.students.first] + [sign_in.students.email] + [sign_in.courses.subject] + [sign_in.courses.catalog_num] + [sign_in.courses.section] + [sign_in.courses.instructor] + [sign_in.courses.code] + [sign_in.courses.term])
-        else: 
+        else:
             spamwriter.writerow([sign_in.id] + [sign_in.date] + [sign_in.time] + [sign_in.empl_id] + [sign_in.purposes.purpose] + [sign_in.students.last] + [sign_in.students.first] + [sign_in.students.email] )
- 
 
-#export sign ins by course     
-db_courses = courses.query.all()
 
-for course in db_courses:
-    with open('C:\\Users\\Av\\Dropbox\\sign_in_by_course\\' + str(course.catalog_num) + '_' + str(course.section) + '.csv','wt') as csvfile:
-        spamwriter = csv.writer(csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
-        spamwriter.writerow( ['Date']  + ['Purpose'] + ['Empl ID'] +  ['Last'] + ['First']  )
+#export sign ins by course
+#db_courses = courses.query.all()
 
-        for sign_in in course.sign_ins:                
-                    spamwriter.writerow( [sign_in.date] + [sign_in.purposes.purpose] + [sign_in.empl_id] + [sign_in.students.last] + [sign_in.students.first]  )
-                
+#for course in db_courses:
+ #   with open('/home/hunterecon/mysite/scripts/sign_in_by_course/' + str(course.catalog_num) + '_' + str(course.section) + '.csv','wt') as csvfile:
+  #      spamwriter = csv.writer(csvfile, delimiter=",", quotechar="|", quoting=csv.QUOTE_MINIMAL, lineterminator='\n')
+   #     spamwriter.writerow( ['Date']  + ['Purpose'] + ['Empl ID'] +  ['Last'] + ['First']   )
+#
+ #       for sign_in in course.sign_ins:
+  #                  spamwriter.writerow( [sign_in.date] + [sign_in.purposes.purpose] + [sign_in.empl_id] + [sign_in.students.last] + [sign_in.students.first] )
 
-    
+
 
 
 
