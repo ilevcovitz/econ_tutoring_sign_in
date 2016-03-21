@@ -44,7 +44,7 @@ A row for each course offered is required in the course table.
 A row for each student is required in the students table. 
 
 | Column | Type | Description | 
-|:--------:|:--------:||:........:|
+|---|---|---|
 |id| int | Unique identifier. Each student should have a unique ID number. The student's employee ID number can be used for this column|
 |term | int | Term number |
 |empl_id| int | Employee ID |
@@ -59,7 +59,7 @@ A row for each student is required in the students table.
 This table contains mapping information for which students are in which courses. There should be a corresponding row for every class's roster's entry. For instance, if student with ID 1234 is registered in two courses with IDs 567 and 890, then there will need to be two rows inserted for this student.  
 
 | Column | Type | Description | 
-|:--------:|:--------:||:........:|
+|---|---|---|
 |id| int | Unique identifier. Each row should have a unique ID number. |
 |students_id| int | Student ID number from students table (can be taken to be Employee ID) |
 |courses_id| int | Course ID number from courses table (can be taken to be course code)|
@@ -71,7 +71,7 @@ This table contains mapping information for which students are in which courses.
 This table stores pins used by instructors to access their course's attendance. 
 
 | Column | Type | Description | 
-|:--------:|:--------:||:........:|
+|---|---|---|
 |id| int | Unique identifier. Each row should have a unique ID number. |
 |courses_id| int | Course ID number from courses table (can be taken to be course code)|
 |pin | text | A secret pin used by this course's instructor.  |
@@ -88,7 +88,7 @@ This table is a list of possible purposes for a student's visit to the tutoring 
 You may change these purposes as required. 
 
 | Column | Type | Description | 
-|:--------:|:--------:||:........:|
+|---|---|---|
 |id| int | Unique identifier. Each row should have a unique ID number. (Best to have these as 1, 2, 3, ...) |
 |purpose | text | Purpose for visit.  |
 
