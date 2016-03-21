@@ -6,11 +6,15 @@ To populate the database, I would recommend using phpmyadmin to create the datab
 
 https://www.phpmyadmin.net/
 
-Once your local database is setup, you can import the database's structure from the provided econtutoring_db_structure.sql file. 
+Once your local database has been created, you can use the phpmyadmin GUI to import this software's database structure from the econtutoring_db_structure.sql file in this repo. 
 
-The following database tables will need to be updated. The easiest way to do this is to import CSV files through phpmyadmin with the necessary columns.
+The database tables listed below will need to be updated with the current semester's information. The easiest way to do this is to import CSV files through phpmyadmin with the necessary columns.
 
-Database Tables:
+When your local phpmyadmin database is up to date, you may upload it into pythonanywhere using these instructions: 
+
+https://help.pythonanywhere.com/pages/ImportingYourLocalDatabaseToPythonAnywhere/
+
+##Database Tables:
 
 
 
