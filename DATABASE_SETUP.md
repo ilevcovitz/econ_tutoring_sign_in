@@ -18,8 +18,8 @@ Database Tables:
 
 A row for each course offered is required in the course table. 
 
-| Column | Type | Description | 
-|---|---||---|
+| Column | Type | Description |
+|---|---|---|
 |id| int | Unique identifier. Each course should have a unique ID number. The course code number can be used for this column|
 |catalog_num | text | Course catalog number |
 |section| text | Course section |
