@@ -56,11 +56,14 @@ A row for each student is required in the students table.
 
 ####Enrollment Mapping
 
-This table contains mapping information for which students are in which courses. There should be a corresponding row for every class's roster's entry. For instance, if student with employee ID 1234 (and students table id 1234 as well) is registered in two courses with IDs 567 and 890, then there will need to be two rows inserted for this student:
+This table contains mapping information for which students are in which courses. There should be a corresponding row for every class's roster's entry. For instance, suppose the rosters consist of a student with employee ID 1234 (and students table id 1234 as well) that is registered in two courses with IDs 567 and 890. Further, suppose there is another student with employee ID 100 who is just registered in course 567. Then there will need to be three rows inserted:
 
-(1, 1234, 567, 1234)
+row 1: (1, 1234, 567, 1234)
 
-(1, 1234, 890, 1234)
+row 2: (2, 1234, 890, 1234)
+
+row 3: (3, 100, 567, 100)
+
 
 | Column | Type | Description | 
 |---|---|---|
