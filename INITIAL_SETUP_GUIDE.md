@@ -6,16 +6,16 @@ For this guide, we will assume you are using a pythonanywhere.com free account. 
 
 ###Web App
 
-Create a new app using Flask. 
+Create a new app using Flask. This web app will run the python code required for the sign in software.
 
 ###Static Files
 
-Under your web app, create a static file: 
-_Note: Replace SITENAME with your site's name._
+A static html file is used to display daily attendance information. Under your web app, create a static file: 
 
 URL: /static/report.html	
 Directory: /home/SITENAME/report.html
  
+_Note: Replace SITENAME with your site's name._
 
 ###Virtual Environment
 
@@ -23,7 +23,7 @@ You will need to create a virtual environment which your online app will run fro
 
 	https://help.pythonanywhere.com/pages/Virtualenvs/
 
-This software used Python 3.4. In your virtual environment, you should "pip install" the required modules found in requirements.txt. You will additionally link your virtual environment to your web app as explained in the above instructions. 
+This software used Python 3.4. In your virtual environment, you should "pip install" the required modules found in the requirements.txt file in this repo. You will additionally link your virtual environment to your web app as explained in the above instructions. 
 
 ###mySQL Database
 
