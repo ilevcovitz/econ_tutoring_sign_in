@@ -60,6 +60,7 @@ We will create a pythonanywhere scheduled task which does the following:
 Under the pythonanywhere account, click the "Schedule" tab. 
 
 Create a scheduled task with the following command: 
+
 _Note: Replace SITENAME with your site's name in pythonanywhere_
 
 /home/SITENAME/.virtualenvs/myvirtualenv/bin/python3.4 /home/SITENAME/mysite/scripts/export.py;/home/SITENAME/.virtualenvs/myvirtualenv/bin/runipy "report.ipynb" "report.ipynb";/home/SITENAME/.virtualenvs/myvirtualenv/bin/jupyter-nbconvert --template output_toggle_html report.ipynb
