@@ -2,20 +2,20 @@
 
 Each semester, the database needs to be populated with courses and student information. 
 
-To populate the database, I would recommend using phpmyadmin to create the database then to import that information into pythonanywhere. To set up phpmyadmin on your local computer, go here: 
+To populate the database, I would recommend using phpmyadmin as an SQL server to create the database then to import that information into pythonanywhere. To set up phpmyadmin on your local computer, go here: 
 
 https://www.phpmyadmin.net/
+(or install [XAMPP](https://www.apachefriends.org/index.html) which includes it)
 
-Once your local database has been created, you can use the phpmyadmin GUI to import this software's database structure from the econtutoring_db_structure.sql file in this repo. 
+Once your local database has been created (i.e. create a new database 'tutoring_Fall_xx'), you can use the phpmyadmin GUI to import the database structure from the econtutoring_db_structure.sql file in this repo (via 'Import tab'). 
 
-The database tables listed below will need to be updated with the current semester's information. The easiest way to do this is to import CSV files through phpmyadmin with the necessary columns.
+The database tables listed below will need to be updated with the current semester's information (obtained from CUNY First). The easiest way to do this is to import CSV files through phpmyadmin with the necessary columns.
 
 When your local phpmyadmin database is up to date, you may upload it into pythonanywhere using these instructions: 
 
 https://help.pythonanywhere.com/pages/ImportingYourLocalDatabaseToPythonAnywhere/
 
 ##Database Tables:
-
 
 
 ####Courses
